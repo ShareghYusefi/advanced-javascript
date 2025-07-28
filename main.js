@@ -21,65 +21,25 @@ $(document).ready(function () {
     $("body").append('<div id="result"></div>');
 
     // get div element with id="result" and set the innerHTML using .html()
-    $("#result").html(`
-            <h2>Form Data</h2>
+    $("#result")
+      .html(
+        `
+            <h2 id="data-heading">Form Data</h2>
             <ul>
                 <li>Email: ${email}</li>    
                 <li>Password: ${password}</li>    
             </ul>
-        `);
+        `
+      )
+      .addClass("bg-primary text-white p-2 rounded");
+
+    // update h2 text using .text()
+    $("#data-heading").text("Form submitted with JQuery");
+
+    // update the remember checkbox checked attribute value using .attr()
+    $("#remember").val("remembered").attr("checked", true);
 
     // prevent the default form submission to current page/reload
     event.preventDefault();
   });
 });
-
-// function signIn(event) {
-//   // document is a key term that returns an object referecing our html document within a browser
-//   var form = document.forms["sign-in-form"];
-
-//   // get form data
-//   console.log(form["email"].value);
-//   var email = form["email"].value;
-//   console.log(form["password"].value);
-//   var password = form["password"].value;
-
-//   // create a dive element with id="result"
-//   var div = document.createElement("div");
-//   // adding attributes to element
-//   div.setAttribute("id", "result");
-//   // append the div to the body of document
-//   document.body.appendChild(div);
-
-//   // retrieving elements can be done via the following methods.
-//   // getElementById, get ElementsByClassName, getElementsByTagName, querySelector, querySelectorAll.
-//   var result = document.getElementById("result");
-//   // Add html inside of element
-//   result.innerHTML = `
-//             <h2>Form Data</h2>
-//             <ul>
-//                 <li>Email: ${email}</li>
-//                 <li>Password: ${password}</li>
-//             </ul>
-//         `;
-
-//   // update css properties
-//   result.style.backgroundColor = "black";
-//   result.style.padding = "10px";
-//   result.style.color = "white";
-//   result.style.fontSize = "18px";
-//   result.style.marginTop = "20px";
-//   result.style.borderRadius = "5px";
-//   result.style.fontFamily = "Arial";
-
-//   // add more classes to elements
-//   result.classList.add("bg-primary", "text-white");
-
-//   // set attributes on an element
-//   result.setAttribute("data-custom", "customValue");
-
-//   // send the form data to a server using AJAX to replace need for process file within the form action attribute
-
-//   // prevent the default form submission to current page/reload
-//   event.preventDefault();
-// }
