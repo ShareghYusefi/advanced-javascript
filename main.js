@@ -18,7 +18,7 @@ $(document).ready(function () {
     console.log(password);
 
     // add a div element with id="result" to the body of document using .append()
-    $("body").append('<div id="result"></div>');
+    $("body").append('<div id="result" style="display:none;"></div>');
 
     // get div element with id="result" and set the innerHTML using .html()
     $("#result")
@@ -32,7 +32,8 @@ $(document).ready(function () {
             <button id="cancel" class="btn btn-danger text-white">X</button>
         `
       )
-      .addClass("bg-primary text-white p-2 rounded");
+      .addClass("bg-primary text-white p-2 rounded")
+      .slideDown();
 
     // update h2 text using .text()
     $("#data-heading").text("Form submitted with JQuery");
@@ -42,7 +43,7 @@ $(document).ready(function () {
 
     // attach a click event handler function
     $("#cancel").click(function () {
-      $("#result").hide();
+      $("#result").fadeOut();
     });
 
     // prevent the default form submission to current page/reload
