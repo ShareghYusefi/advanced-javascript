@@ -29,6 +29,7 @@ $(document).ready(function () {
                 <li>Email: ${email}</li>    
                 <li>Password: ${password}</li>    
             </ul>
+            <button id="cancel" class="btn btn-danger text-white">X</button>
         `
       )
       .addClass("bg-primary text-white p-2 rounded");
@@ -38,6 +39,11 @@ $(document).ready(function () {
 
     // update the remember checkbox checked attribute value using .attr()
     $("#remember").val("remembered").attr("checked", true);
+
+    // attach a click event handler function
+    $("#cancel").click(function () {
+      $("#result").hide();
+    });
 
     // prevent the default form submission to current page/reload
     event.preventDefault();
