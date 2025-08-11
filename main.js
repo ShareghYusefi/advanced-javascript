@@ -49,4 +49,21 @@ $(document).ready(function () {
     // prevent the default form submission to current page/reload
     event.preventDefault();
   });
+
+  var apiBase = "http://localhost:3000";
+
+  // define load tasks function
+  function loadTasks() {
+    $.ajax({
+      url: `${apiBase}/tasks`,
+      method: "GET",
+      success: (tasks) => {
+        // log to console.
+        console.log(tasks);
+      },
+    });
+  }
+
+  // load tasks
+  loadTasks();
 });
